@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/menu_navigation"
+        android:background="@color/main_screen"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -20,8 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/main_screen"
-        app:itemTextColor="@android:color/main_screen"
-        app:itemIconTint="@android:color/main_screen"
+        app:itemTextColor="@color/light_navigation"
+        app:itemIconTint="@color/light_navigation"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/desnavigation"

@@ -2,27 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/menu_favorites"
+        app:showAsAction="withText"/>
+    <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_home"
-        android:title="@string/menu_home_title"/>
-    <item
-        android:id="@+id/interesting"
-        android:icon="@drawable/ic_sentiment_satisfied"
-        android:title="@string/menu_interesting_title"
+        android:icon="@drawable/ic_paw"
+        android:title="@string/menu_home"/>
         app:showAsAction="withText"/>
     <item
-        android:id="@+id/add"
-        android:icon="@drawable/ic_add"
-        android:title="@string/menu_add_title"/>
+        android:id="@+id/help"
+        android:icon="@drawable/ic_help"
+        android:title="@string/menu_help"
         app:showAsAction="withText"/>
-    <item
-        android:id="@+id/message"
-        android:icon="@drawable/ic_message"
-        android:title="@string/menu_message_title"
-        app:showAsAction="withText"/>
-    <item
-        android:id="@+id/account"
-        android:icon="@drawable/ic_account"
-        android:title="@string/menu_account_title"
-        app:showAsAction="withText"/>
+
 </menu>

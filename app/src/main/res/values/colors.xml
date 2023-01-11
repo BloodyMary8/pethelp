@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="main_screen">#FFEFD6</color>
+    <color name="main_screen1">#FBECEC</color>
     <color name="menu_navigation">#0E5E6F</color>
     <color name="light_navigation">#3A8891</color>
     <color name="another">#F2DEBA</color>
-
-
-    <color name="teal_700">#FF018786</color>
-
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="dark_grey">#403F3F</color>
 
 </resources>
