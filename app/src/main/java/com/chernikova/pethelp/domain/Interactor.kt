@@ -26,6 +26,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                     println(it.localizedMessage)
                 }
         )
+        println()
         preferenceProvider.saveAuthToken(TOKEN)
     }
     fun getAnimalFromApi(type: String) {

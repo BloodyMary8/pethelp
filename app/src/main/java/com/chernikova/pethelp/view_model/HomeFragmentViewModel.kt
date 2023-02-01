@@ -26,6 +26,7 @@ class HomeFragmentViewModel : ViewModel() {
 
     private fun getToken() {
         interactor.getToken()
+
     }
 
     //fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
