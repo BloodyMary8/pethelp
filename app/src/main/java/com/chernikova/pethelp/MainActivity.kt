@@ -1,16 +1,15 @@
 package com.chernikova.pethelp
 
 
-import android.content.BroadcastReceiver
-import android.content.Intent
-import android.content.IntentFilter
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.chernikova.pethelp.databinding.ActivityMainBinding
 import com.chernikova.pethelp.view.fragments.HomeFragment
 import androidx.fragment.app.Fragment
-import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.view.fragments.HelpFragment
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -50,9 +49,8 @@ class MainActivity : AppCompatActivity() {
       //  fragment.arguments = bundle
 
 
-
     private fun initNavigation() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+        binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
                     val tag = "favorites"
