@@ -10,7 +10,6 @@ import com.chernikova.pethelp.di.DaggerAppComponent
 
 class App : Application() {
     lateinit var dagger: AppComponent
-    var isPromoShown = false
 
     override fun onCreate() {
         super.onCreate()

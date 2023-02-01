@@ -19,11 +19,21 @@ class HomeFragmentViewModel : ViewModel() {
         App.instance.dagger.inject(this)
         showProgressBar = interactor.progressBarState
         animalsListData = interactor.getAnimalFromDB()
+        getToken()
         getAnimals()
+
     }
-   //fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
+
+    private fun getToken() {
+        interactor.getToken()
+
+    }
+
+    //fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
+
 
     fun getAnimals() {
-        interactor.getAnimalFromApi(1) //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
+        interactor.getAnimalFromApi("dog") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
     }
+
 }

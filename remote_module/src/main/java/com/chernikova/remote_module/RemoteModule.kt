@@ -1,10 +1,12 @@
 package com.chernikova.remote_module
 
+import android.content.Context
 import com.chernikova.remote_module.entity.ApiConstants
 import dagger.Module
 import dagger.Provides
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,6 +16,7 @@ import javax.inject.Singleton
 
 @Module
 class RemoteModule {
+
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
@@ -26,6 +29,12 @@ class RemoteModule {
                 level = HttpLoggingInterceptor.Level.BASIC
             }
         })
+       // .addInterceptor {
+        //    val request = it.request().newBuilder()
+       //         .addHeader("Authorization", getAuthToken())
+        //        .build()
+        //    it.proceed(request)
+      //  }
         .build()
 
     @Provides
