@@ -31,6 +31,6 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     fun getAnimals() {
-        interactor.getAnimalFromApi("dog") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
+        interactor.getAnimalFromApi("cat") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
     }
 }
