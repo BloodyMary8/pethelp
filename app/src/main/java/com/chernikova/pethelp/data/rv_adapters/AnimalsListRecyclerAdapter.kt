@@ -7,7 +7,7 @@ import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.databinding.AnimalItemBinding
 import com.chernikova.pethelp.rv_viewholders.AnimalsViewHolder
 
-class AnimalsListRecyclerAdapter(private val clickListener: AnimalsListRecyclerAdapter.OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class AnimalsListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     //Здеь у нас хранится список элементов для RV
     val items = mutableListOf<AnimalCard>()
