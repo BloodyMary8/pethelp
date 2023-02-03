@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initNavigation() {
-        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+        binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
                     val tag = "favorites"

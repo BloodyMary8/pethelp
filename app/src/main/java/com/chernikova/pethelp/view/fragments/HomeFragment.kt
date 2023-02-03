@@ -9,12 +9,15 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.chernikova.pethelp.MainActivity
 import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.data.rv_adapters.AnimalsListRecyclerAdapter
 import com.chernikova.pethelp.data.rv_adapters.TopSpacingItemDecoration
 import com.chernikova.pethelp.databinding.FragmentHomeBinding
+import com.chernikova.pethelp.domain.Interactor
 import com.chernikova.pethelp.view_model.HomeFragmentViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.subscribeBy
@@ -43,7 +46,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         initPullToRefresh()
         //находим наш RV

@@ -14,18 +14,18 @@ class AnimalsViewHolder(val animalItemBinding: AnimalItemBinding) : RecyclerView
         private val description = animalItemBinding.description
 
         fun bind(animalCard: AnimalCard) {
-            //Устанавливаем заголовок
+           // Устанавливаем заголовок
             title.text = animalCard.name
             //Устанавливаем постер
             //Указываем контейнер, в которм будет "жить" наша картинка
             Glide.with(itemView)
                 //Загружаем сам ресурс
-              .load(com.chernikova.remote_module.entity.ApiConstants.IMAGES_URL + "w342" + animalCard.photos)
+              .load(com.chernikova.remote_module.entity.ApiConstants.IMAGES_URL + "w342" + animalCard.poster)
             //Центруем изображение
                 .centerCrop()
                // Указываем ImageView, куда будем загружать изображение
                .into(poster)
             //Устанавливаем описание
-            description.text = animalCard.description
+           description.text = animalCard.description
         }
     }
