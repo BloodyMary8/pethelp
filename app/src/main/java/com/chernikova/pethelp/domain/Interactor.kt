@@ -31,6 +31,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
      fun getAnimalFromApi(type: String) {
         //Показываем ProgressBar
        progressBarState.onNext(true)
+
         //Метод getDefaultCategoryFromPreferences() будет нам получать при каждом запросе нужный нам список фильмов
         retrofitService.getAnimal(preferences.getAuthToken(), type)
             .observeOn(Schedulers.io())
