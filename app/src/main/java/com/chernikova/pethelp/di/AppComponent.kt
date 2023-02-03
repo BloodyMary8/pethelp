@@ -17,7 +17,6 @@ import com.chernikova.remote_module.RemoteProvider
     ]
 )
 interface AppComponent {
-
     //метод для того, чтобы появилась возможность внедрять зависимости в HomeFragmentViewModel
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
 
