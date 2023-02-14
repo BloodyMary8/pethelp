@@ -4,7 +4,8 @@
     <string name="menu_favorites">Избранное</string>
     <string name="menu_home">Найди любимца</string>
     <string name="menu_help">Помощь</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="downloaded_to_gallery">"Сохранено в галерею"</string>
+    <string name="open">В галерею</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

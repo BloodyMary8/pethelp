@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Colors (
 
-    @SerializedName("primary") val primary : String,
-    @SerializedName("secondary") val secondary : String,
-    @SerializedName("tertiary") val tertiary : String
+    @SerializedName("primary") val primary : String? = null,
+    @SerializedName("secondary") val secondary : String? = null,
+    @SerializedName("tertiary") val tertiary : String? = null
 )

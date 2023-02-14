@@ -10,6 +10,7 @@ import com.chernikova.pethelp.databinding.ActivityMainBinding
 import com.chernikova.pethelp.view.fragments.HomeFragment
 import androidx.fragment.app.Fragment
 import com.chernikova.pethelp.data.entity.AnimalCard
+import com.chernikova.pethelp.view.fragments.DetailsFragment
 import com.chernikova.pethelp.view.fragments.HelpFragment
 
 class MainActivity : AppCompatActivity() {
@@ -39,17 +40,16 @@ class MainActivity : AppCompatActivity() {
         //    .commit()
     }
 
-    //fun launchDetailsFragment(animalCard: AnimalCard) {
+    fun launchDetailsFragment(animalCard: AnimalCard) {
         //Создаем "посылку"
-     //   val bundle = Bundle()
+        val bundle = Bundle()
         //Кладем наш фильм в "посылку"
-    //    bundle.putParcelable("animalCard", animalCard)
+        bundle.putParcelable("animalCard", animalCard)
         //Кладем фрагмент с деталями в перменную
-     //   val fragment = DetailsFragment()
+        val fragment = DetailsFragment()
         //Прикрепляем нашу "посылку" к фрагменту
-      //  fragment.arguments = bundle
-
-
+        fragment.arguments = bundle
+    }
 
     private fun initNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener {

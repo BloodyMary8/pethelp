@@ -9,6 +9,7 @@ import com.chernikova.pethelp.di.DaggerAppComponent
 
 
 class App : Application() {
+
     lateinit var dagger: AppComponent
 
     override fun onCreate() {
@@ -27,3 +28,4 @@ class App : Application() {
             private set
     }
 }
+

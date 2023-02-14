@@ -1,8 +1,6 @@
 package com.chernikova.pethelp.view_model
 
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.chernikova.pethelp.App
 import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.domain.Interactor
@@ -27,10 +25,10 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     private fun getToken() {
-        interactor.getToken()
+      interactor.getTokenAccess()
     }
 
     fun getAnimals() {
-        interactor.getAnimalFromApi("cat") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
+        interactor.getAnimalFromApi("dog") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
     }
 }

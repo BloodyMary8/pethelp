@@ -20,13 +20,13 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -45,13 +45,8 @@ dependencies {
         implementation 'androidx.legacy:legacy-support-v4:1.0.0'
         implementation 'androidx.fragment:fragment-ktx:1.5.5'
 
-
     //MaterialDesign
     implementation 'com.google.android.material:material:1.7.0'
-
-    //Coordinator layout
-    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
-
 
     //Coordinator layout
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
@@ -83,5 +78,5 @@ dependencies {
 
     //Remote module
     implementation project(":remote_module")
-
+   //implementation project( ":app")
 }

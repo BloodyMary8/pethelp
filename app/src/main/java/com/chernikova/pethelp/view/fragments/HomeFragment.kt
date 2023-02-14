@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
        // AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(),1)
 
         viewModel.animalsListData
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.single())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(onNext={ list ->
                 animalsAdapter.addItems(list)
@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
             )
            // .addTo(autoDisposable)
         viewModel.showProgressBar
-            .subscribeOn(Schedulers.io())
+            .subscribeOn(Schedulers.single())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy (onNext={
                 binding.progressBar.isVisible = it

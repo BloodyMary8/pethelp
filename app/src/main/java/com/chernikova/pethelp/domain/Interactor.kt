@@ -5,6 +5,7 @@ import com.chernikova.pethelp.MainRepository
 import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.utils.Converter
 import com.chernikova.remote_module.FndApi
+import com.chernikova.remote_module.json.KeyData
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -13,10 +14,10 @@ import io.reactivex.rxjava3.subjects.BehaviorSubject
 class Interactor(private val repo: MainRepository, private val retrofitService: FndApi, private val preferences: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
 
-    fun getToken() {
+    fun getTokenAccess() {
         progressBarState.onNext(true)
-        retrofitService.getToken("client_credentials", ID.KEY, SECRET.KEY)
-            .subscribeOn(Schedulers.io())
+        retrofitService.getToken(KeyData("client_credentials",ID.KEY,SECRET.KEY))
+            .subscribeOn(Schedulers.single())
             .map {
                 preferences.saveAuthToken(it.accessToken)
                 println(it.accessToken)
@@ -33,18 +34,29 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
        progressBarState.onNext(true)
 
         //Метод getDefaultCategoryFromPreferences() будет нам получать при каждом запросе нужный нам список фильмов
-        retrofitService.getAnimal(preferences.getAuthToken(), type)
-            .observeOn(Schedulers.io())
+        retrofitService.getAnimal("Bearer " + preferences.getAuthToken(), type)
+            .subscribeOn(Schedulers.single())
             .map {
                 Converter.convertApiListToDtoList(it.fndAnimal)
             }
+            .subscribeBy(
+                onError = {
+                    progressBarState.onNext(false)
+                },
+                onNext = {
+                    progressBarState.onNext(false)
+                    repo.putToDb(it)
+                }
+            )
 
     }
     fun getAnimalFromDB(): Observable<List<AnimalCard>> = repo.getAllFromDB()
+
         object ID {
             const val KEY = "mMJYr8LX3Z7KjJgbUAJEbqByvxM5sus4JDQ6RsDc76MLloo5gn"
         }
         object SECRET {
             const val KEY = "h6FyE7JZ0qr1W8YoHva3xzebwbWkmusJc7NHaQzm"
+
         }
 }
