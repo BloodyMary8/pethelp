@@ -9,6 +9,7 @@ import com.chernikova.pethelp.di.DaggerAppComponent
 
 
 class App : Application() {
+
     lateinit var dagger: AppComponent
 
     override fun onCreate() {
@@ -22,8 +23,9 @@ class App : Application() {
             .domainModule(DomainModule(this))
             .build()
     }
-        companion object {
-            lateinit var instance: App
-                private set
-        }
+    companion object {
+        lateinit var instance: App
+            private set
     }
+}
+

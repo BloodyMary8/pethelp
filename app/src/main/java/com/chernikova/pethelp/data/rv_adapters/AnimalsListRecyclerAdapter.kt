@@ -7,7 +7,7 @@ import com.chernikova.pethelp.data.entity.AnimalCard
 import com.chernikova.pethelp.databinding.AnimalItemBinding
 import com.chernikova.pethelp.rv_viewholders.AnimalsViewHolder
 
-class AnimalsListRecyclerAdapter(private val clickListener: AnimalsListRecyclerAdapter.OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class AnimalsListRecyclerAdapter(private val clickListener: OnItemClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
 
     //Здеь у нас хранится список элементов для RV
     val items = mutableListOf<AnimalCard>()
@@ -18,8 +18,8 @@ class AnimalsListRecyclerAdapter(private val clickListener: AnimalsListRecyclerA
     //В этом методе мы привязываем наш view holder и передаем туда "надутую" верстку нашего фильма
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val filmItemBinding = AnimalItemBinding.inflate(layoutInflater, parent, false)
-        return AnimalsViewHolder(filmItemBinding)
+        val animalItemBinding = AnimalItemBinding.inflate(layoutInflater, parent, false)
+        return AnimalsViewHolder(animalItemBinding)
     }
 
     //В этом методе будет привзяка полей из объекта Film, к view из film_item.xml

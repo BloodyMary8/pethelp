@@ -2,8 +2,8 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-android'
 }
-
 
 android {
     compileSdk 32
@@ -36,8 +36,9 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
-    testImplementation 'junit:junit:4.13.2'
+
     implementation 'com.google.code.gson:gson:2.10'
+
     //Dagger
     implementation 'com.google.dagger:dagger:2.43.2'
     kapt 'com.google.dagger:dagger-compiler:2.43.2'
@@ -48,6 +49,5 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10"
     implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0"
     implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
-    implementation 'com.github.kittinunf.fuel:fuel:2.3.1'
 
 }

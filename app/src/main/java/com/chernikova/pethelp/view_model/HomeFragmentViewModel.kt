@@ -25,12 +25,6 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     private fun getToken() {
-        interactor.getToken()
-
-    }
-
-    //fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
-
 
     fun getAnimals() {
         interactor.getAnimalFromApi("dog") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА

@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.chernikova.pethelp.databinding.ActivityMainBinding
 import com.chernikova.pethelp.view.fragments.HomeFragment
 import androidx.fragment.app.Fragment
+
 import com.chernikova.pethelp.view.fragments.HelpFragment
 
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,30 +23,28 @@ class MainActivity : AppCompatActivity() {
         //receiver = ConnectionChecker()
 
         //val filters = IntentFilter().apply {
-         //   addAction(Intent.ACTION_POWER_CONNECTED)
+        //   addAction(Intent.ACTION_POWER_CONNECTED)
         ///    addAction(Intent.ACTION_BATTERY_LOW)
-       // }
+        // }
         //registerReceiver(receiver, filters)
-
         initNavigation()
 
         //Зупускаем фрагмент при старте
-       // supportFragmentManager
-        //    .beginTransaction()
-         //   .add(R.id.fragment_placeholder, HelpFragment())
-        //    .addToBackStack(null)
-        //    .commit()
+         supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HelpFragment())
+            .addToBackStack(null)
+            .commit()
     }
 
-    //fun launchDetailsFragment(animalCard: AnimalCard) {
+    fun launchDetailsFragment(animalCard: AnimalCard) {
         //Создаем "посылку"
-     //   val bundle = Bundle()
+        val bundle = Bundle()
         //Кладем наш фильм в "посылку"
-    //    bundle.putParcelable("animalCard", animalCard)
+        bundle.putParcelable("animalCard", animalCard)
         //Кладем фрагмент с деталями в перменную
-     //   val fragment = DetailsFragment()
+        val fragment = DetailsFragment()
         //Прикрепляем нашу "посылку" к фрагменту
-      //  fragment.arguments = bundle
 
 
     private fun initNavigation() {

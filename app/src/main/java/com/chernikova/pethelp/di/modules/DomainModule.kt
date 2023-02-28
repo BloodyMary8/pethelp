@@ -2,7 +2,9 @@ package com.chernikova.pethelp.di.modules
 
 import android.content.Context
 import com.chernikova.pethelp.MainRepository
+import com.chernikova.pethelp.domain.PreferenceProvider
 import com.chernikova.pethelp.domain.Interactor
+import com.chernikova.pethelp.domain.PreferenceCategory
 import com.chernikova.remote_module.FndApi
 import dagger.Module
 import dagger.Provides
@@ -18,5 +20,15 @@ class DomainModule(val context: Context) {
 
     @Singleton
     @Provides
-    fun provideInteractor(repository: MainRepository, fndApi: FndApi) = Interactor(repo = repository, retrofitService = fndApi)
+    //Создаем экземпляр SharedPreferences
+    fun providePreferences(context: Context) = PreferenceProvider(context)
+
+    @Singleton
+    @Provides
+    //Создаем экземпляр SharedPreferences
+    fun categoryPreferences(context: Context) = PreferenceCategory(context)
+
+    @Singleton
+    @Provides
+    fun provideInteractor(repository: MainRepository, fndApi: FndApi, preferenceCategory: PreferenceCategory,preferenceProvider: PreferenceProvider) = Interactor(repo = repository, retrofitService = fndApi, preferences = preferenceCategory,prefs = preferenceProvider)
 }

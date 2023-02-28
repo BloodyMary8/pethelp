@@ -1,6 +1,6 @@
 package com.chernikova.remote_module
 
-import android.content.Context
+
 import com.chernikova.remote_module.entity.ApiConstants
 import dagger.Module
 import dagger.Provides
@@ -15,14 +15,12 @@ import javax.inject.Singleton
 
 
 @Module
-class RemoteModule {
-
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         //Настраиваем таймауты для медленного интернета
-        .callTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
+        .callTimeout(50, TimeUnit.SECONDS)
+        .readTimeout(50, TimeUnit.SECONDS)
         //Добавляем логгер
         .addInterceptor(HttpLoggingInterceptor().apply {
             if (BuildConfig.DEBUG) {
@@ -36,6 +34,7 @@ class RemoteModule {
         //    it.proceed(request)
       //  }
         .build()
+
 
     @Provides
     @Singleton

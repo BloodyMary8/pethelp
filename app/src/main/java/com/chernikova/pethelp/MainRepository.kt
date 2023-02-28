@@ -6,8 +6,7 @@ import io.reactivex.rxjava3.core.Observable
 
 class MainRepository(private val AnimalDao: AnimalDao) {
 
-    fun putToDb(animals: List<AnimalCard>) {
-        AnimalDao.insertAll(animals)
+
     }
 
     fun getAllFromDB(): Observable<List<AnimalCard>> = AnimalDao.getCachedAnimals()
