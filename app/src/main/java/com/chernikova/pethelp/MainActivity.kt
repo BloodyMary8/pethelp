@@ -7,9 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.chernikova.pethelp.databinding.ActivityMainBinding
 import com.chernikova.pethelp.view.fragments.HomeFragment
 import androidx.fragment.app.Fragment
-import com.chernikova.pethelp.data.entity.AnimalCard
-import com.chernikova.pethelp.view.fragments.DetailsFragment
+
 import com.chernikova.pethelp.view.fragments.HelpFragment
+
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -44,8 +45,7 @@ class MainActivity : AppCompatActivity() {
         //Кладем фрагмент с деталями в перменную
         val fragment = DetailsFragment()
         //Прикрепляем нашу "посылку" к фрагменту
-        fragment.arguments = bundle
-    }
+
 
     private fun initNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener {

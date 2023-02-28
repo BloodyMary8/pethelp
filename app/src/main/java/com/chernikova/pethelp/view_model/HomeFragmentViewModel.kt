@@ -25,10 +25,9 @@ class HomeFragmentViewModel : ViewModel() {
     }
 
     private fun getToken() {
-      interactor.getTokenAccess()
-    }
 
     fun getAnimals() {
         interactor.getAnimalFromApi("dog") //ЗДЕСЬ МЫ ВСАВЛЯЕМ С ИНТЕРАКТОРА
     }
+
 }
