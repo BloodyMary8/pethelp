@@ -19,7 +19,8 @@ interface FndApi {
 
 @GET("v2/animals")
  fun getAnimal(
-   @Header("Authorization") token: String?,
+    @Header("Authorization") token: String?,
     @Query("type") type: String,
-   ): Observable<FndResults>
+    @Query("type")type1: String
+): Observable<FndResults>
 }

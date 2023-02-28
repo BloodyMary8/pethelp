@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 
-class Interactor(private val repo: MainRepository, private val retrofitService: FndApi, private val preferences: PreferenceProvider) {
+class Interactor(private val repo: MainRepository, private val retrofitService: FndApi, private val preferences: PreferenceCategory, private val prefs: PreferenceProvider) {
     var progressBarState: BehaviorSubject<Boolean> = BehaviorSubject.create()
 
     fun getTokenAccess() {
@@ -19,8 +19,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
         retrofitService.getToken(KeyData("client_credentials",ID.KEY,SECRET.KEY))
             .subscribeOn(Schedulers.single())
             .map {
-                preferences.saveAuthToken(it.accessToken)
-                println(it.accessToken)
+                prefs.saveAuthToken(it.accessToken)
             }
             .subscribeBy(
                 onError = {
@@ -32,9 +31,8 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
      fun getAnimalFromApi(type: String) {
         //Показываем ProgressBar
        progressBarState.onNext(true)
-
         //Метод getDefaultCategoryFromPreferences() будет нам получать при каждом запросе нужный нам список фильмов
-        retrofitService.getAnimal("Bearer " + preferences.getAuthToken(), type)
+        retrofitService.getAnimal(getDefaultCategoryFromPreferences(),"Bearer " + prefs.getAuthToken(), type)
             .subscribeOn(Schedulers.single())
             .map {
                 Converter.convertApiListToDtoList(it.fndAnimal)
@@ -50,6 +48,14 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
             )
 
     }
+    //Метод для сохранения настроек
+    fun saveDefaultCategoryToPreferences(category: String) {
+        preferences.saveDefaultCategory(category)
+    }
+
+    //Метод для получения настроек
+    fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
+
     fun getAnimalFromDB(): Observable<List<AnimalCard>> = repo.getAllFromDB()
 
         object ID {
@@ -57,6 +63,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
         }
         object SECRET {
             const val KEY = "h6FyE7JZ0qr1W8YoHva3xzebwbWkmusJc7NHaQzm"
-
         }
 }

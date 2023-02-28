@@ -27,7 +27,7 @@ data class FndAnimal (
     @SerializedName("organization_animal_id") val organizationAnimalId : Int? = null,
     @SerializedName("photos") val photos : List<Photo> = emptyList(),
     @SerializedName("primary_photo_cropped") val primaryPhotoCropped: Photo? = null,
-    @SerializedName("videos") val videos : List<Videos>? = null,
+    //@SerializedName("videos") val videos : List<Videos>? = null,
     @SerializedName("status") val status : String? = null,
     @SerializedName("status_changed_at") val statusChangedAt: String? = null,
     @SerializedName("published_at") val published_at : String? = null,
